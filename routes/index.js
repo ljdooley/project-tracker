@@ -7,8 +7,8 @@ router.get('/api', (req, res)=> {
 });
 
 //GET a list of all projects: /projects
-router.get('/projects', (req, res)=> {
-    res.json(data);
+router.get('/projects', (req, res)=> { 
+  res.json(data);
 });
 
 //GET a specific project: /projects/:id
