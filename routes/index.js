@@ -1,30 +1,28 @@
 const { response } = require('express');
-
 const router = require('express').Router();
+const handler = require('../handlers/index');
 
 router.get('/api', (req, res)=> {
     res.send('You started your project! Good job!')
 });
 
 //GET a list of all projects: /projects
-router.get('/projects', (req, res)=> { 
-  res.json(data);
+router.get('/projects', async (req, res)=> { 
+  const allProjects = await handler.getAllProjects();
+  res.json(allProjects);
 });
 
 //GET a specific project: /projects/:id
-router.get('/projects/:id', (req, res)=> {
-    const project = data.projects.find(project => project.id == req.params.id);
-    res.json(project);
+router.get('/projects/:id', async (req, res)=> {
+    const id = req.params.id;
+    const projectById = await handler.projectById(id);
+    res.json(projectById);
 });
 
 //Get supply list for all projects
-router.get('/supplies', (req, res)=> {
-  let supplylist = [];
- 
-  for(x in data.projects){
-    supplylist.push(data.projects[x].supplies);
-  }
-  res.send(supplylist);
+router.get('/supplies', async (req, res)=> {
+  const supplyList = await handler.getSupplies();
+  res.send(supplyList);
 });
 
 

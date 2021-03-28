@@ -18,7 +18,8 @@ const { Project } = db.models;
   console.log("synchronized");
   try {
     const project = await Project.create({
-      name: "Knitted Sweater"
+      name: "Scarf",
+      supplies: "200 yards wool yarn"
     });
     console.log(project.toJSON());
 
