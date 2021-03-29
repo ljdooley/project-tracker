@@ -14,19 +14,23 @@ const db = require('./db');
 const { Project } = db.models;
 
 (async () => {
-  // Sync all tables
-  await db.sequelize.sync();
-  console.log("synchronized");
+  /*Sync all tables, creates database
+  force: true -> overwrites database if it already exisits. 
+  This would not be approriate in production, but is done for easy testing/management during writing.*/
+  await db.sequelize.sync({ force: true });
+  console.log("Database created");
+  /*puts some initial data in the database to work with*/
   try {
-    const project = await Project.create({
+    await Project.bulkCreate([{
       name: "Scarf",
       supplies: "200 yards wool yarn"
+    }, {
+      name: "Embroidery",
+      supplies: "Embroidery Floss"
+    }, {
+      name: "Birthday card",
+      supplies: "cardstock"
     });
-    //console.log(project.toJSON());
-
-    //const projectById = await Project.findByPk(1);
-    //console.log(projectById.toJSON());
-  
   } catch (error) {
     console.error('Error connecting to the database: ', error);
   }
