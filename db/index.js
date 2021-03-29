@@ -3,7 +3,10 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: 'projects.db',
-  logging: false
+  logging: false,
+  define: {
+    timestamps: false
+  }
 });
 
 const db = {
