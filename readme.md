@@ -18,12 +18,13 @@ To run the API, or run the unit tests:
 
 1. Clone repo
 2. Run npm install
+3. Follow directions for running API, or unit tests.
 
-    To run the program:
-        1. Run node proejctapp.js
-        2. Make Make requests to http://localhost:3000
+To run the program:
+1. Run node proejctapp.js
+2. Make Make requests to http://localhost:3000
 
-    To run the unit tests:
-        1. Run npm test
+To run the unit tests:
+1. Run npm test
 
-Postman is useful for interacting w/the API, posts to the projects route should be made with JSON. https://www.postman.com/
+Note: Postman is useful for interacting w/the API, posts to the projects route should be made with JSON. https://www.postman.com/
