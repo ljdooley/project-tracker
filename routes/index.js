@@ -2,10 +2,6 @@ const { response } = require('express');
 const router = require('express').Router();
 const handler = require('../handlers/index');
 
-router.get('/api', (req, res)=> {
-    res.send('You started your project! Good job!')
-});
-
 //GET a list of all projects -> /projects
 router.get('/projects', async (req, res)=> { 
   const allProjects = await handler.getAllProjects();
