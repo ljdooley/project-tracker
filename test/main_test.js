@@ -37,7 +37,7 @@ describe('get specific ID', function(){
         expect(testProject.id).to.be.equal(2);
         expect(testProject.name).to.be.equal("Embroidery");
         expect(testProject.supplies).to.be.equal("Embroidery Floss");
-    })
+    });
 });
 
 
@@ -51,8 +51,19 @@ describe('create', function(){
         expect(newProject.id).to.be.equal(4);
         expect(newProject.name).to.be.equal("Jam");
         expect(newProject.supplies).to.be.equal("Fruit");
-    })
+    });
     
 });
 
-describe('get a list of all supplies', function(){});
+describe('get a list of all supplies', function(){
+    it('should return 3 items', async function() {
+        const supplies = await handler.getSupplies();
+        expect(supplies).to.be.lengthOf(3);
+    });
+    it('name of properties should be supplies', async function(){
+        const supplies = await handler.getSupplies();
+        for(i in supplies){
+            expect(supplies[i]).to.haveOwnProperty('supplies');
+        }
+    });
+});

@@ -20,10 +20,12 @@ async function createProject(req) {
 }
 
 //gets a list of supplies for all projects
-function getSupplies() {
-    return Project.findAll({
-        attributes: ['supplies']
+async function getSupplies() {
+    const supplyList = await Project.findAll({
+        attributes: ['supplies'],
+        raw: true  //allows for variation of property name in unit testing
     });
+    return supplyList;
 }
 
 

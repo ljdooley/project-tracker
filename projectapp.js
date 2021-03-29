@@ -22,15 +22,16 @@ const { Project } = db.models;
   /*puts some initial data in the database to work with*/
   try {
     await Project.bulkCreate([{
-      name: "Scarf",
-      supplies: "200 yards wool yarn"
+        name: "Scarf",
+        supplies: "200 yards wool yarn"
     }, {
-      name: "Embroidery",
-      supplies: "Embroidery Floss"
+        name: "Embroidery",
+        supplies: "Embroidery Floss"
     }, {
-      name: "Birthday card",
-      supplies: "cardstock"
-    });
+        name: "Birthday card",
+        supplies: "cardstock"
+    }]);
+    console.log("database populated with test data")
   } catch (error) {
     console.error('Error connecting to the database: ', error);
   }

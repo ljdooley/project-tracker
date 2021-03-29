@@ -29,7 +29,11 @@ router.post('/projects', async (req, res) => {
 //Get supply list for all projects -> /supplies
 router.get('/supplies', async (req, res)=> {
   const supplyList = await handler.getSupplies();
-  res.send(supplyList);
+  //console.log(JSON.parse(supplyList));
+  //console.log(Object.getOwnPropertyNames(supplyList.dataValues));
+  //console.log(Object.keys(supplyList[0]));
+  console.log(Object.getOwnPropertyNames(supplyList[0]))
+  res.json(supplyList);
 });
 
 
