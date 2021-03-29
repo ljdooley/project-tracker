@@ -23,7 +23,12 @@ beforeEach(async function() {
     }
 });
 
-describe('get all projects', function(){});
+describe('get all projects', function(){
+    it('should return 3 projects', async function () {
+        allProjects = await handler.getAllProjects()
+        expect(allProjects).to.be.lengthOf(3);
+    });
+});
 
 
 describe('get specific ID', function(){
