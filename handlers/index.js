@@ -3,11 +3,6 @@ const express = require('express');
 const db = require('../db/index');
 const { Project } = db.models;
 
-/*test I'm linking my tests to code correctly*/
-function testMocha() {
-    return 2;
-}
-
 //gets a list of all projects -> get /projects
 function getAllProjects() {
     return Project.findAll();
@@ -19,8 +14,9 @@ function projectById(id) {
 }
 
 //creates a project -> post /projects
-function createProject() {
-
+async function createProject(req) {
+    const newProject = await Project.create(req);
+    return newProject;
 }
 
 //gets a list of supplies for all projects
@@ -32,4 +28,4 @@ function getSupplies() {
 
 
 
-module.exports = { testMocha, getAllProjects, projectById, createProject, getSupplies }; 
+module.exports = { getAllProjects, projectById, createProject, getSupplies }; 

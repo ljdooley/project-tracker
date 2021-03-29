@@ -19,6 +19,14 @@ router.get('/projects/:id', async (req, res)=> {
     res.json(projectById);
 });
 
+//POST (create) a project: /projects
+router.post('/projects', async (req, res) => {
+    console.log(req.body);
+    const newProject = await handler.createProject(req.body);
+    res.json(newProject);
+    //res.sendStatus(200);
+});
+
 //Get supply list for all projects
 router.get('/supplies', async (req, res)=> {
   const supplyList = await handler.getSupplies();
@@ -26,7 +34,7 @@ router.get('/supplies', async (req, res)=> {
 });
 
 
-//POST (create) a project: /projects
+
 //PUT (update) a project: /projects/:id
 
 //DELETE a project: /projects/:id

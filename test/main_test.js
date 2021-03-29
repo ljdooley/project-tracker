@@ -23,13 +23,6 @@ beforeEach(async function() {
     }
 });
 
-describe('code and test are linked correctly', function() {
-
-    it('should return 2', function(){
-       expect(handler.testMocha()).to.equal(2);     
-    });
-});
-
 describe('get all projects', function(){});
 
 
@@ -43,6 +36,18 @@ describe('get specific ID', function(){
 });
 
 
-describe('create', function(){});
+describe('create', function(){
+    it('should create a new project in the database', async function(){
+        let newProject = {
+            name: "Jam",
+            supplies: "Fruit"
+        }
+        newProject = await handler.createProject(newProject);
+        expect(newProject.id).to.be.equal(4);
+        expect(newProject.name).to.be.equal("Jam");
+        expect(newProject.supplies).to.be.equal("Fruit");
+    })
+    
+});
 
 describe('get a list of all supplies', function(){});
