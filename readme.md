@@ -1,5 +1,5 @@
 # Project Tracker
-Project tracker is a REST API that alows a user to create and track projects, including a list of supplies needed.  
+Project tracker is a REST API that allows a user to create and track projects, including a list of supplies needed.  
 
 ## Features
 * Local data connection: Sequelize
